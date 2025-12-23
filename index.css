@@ -1,0 +1,37 @@
+            #textboxtext {
+                white-space: pre-wrap;
+            }
+            @font-face {
+                font-family: "pmd";
+                src: url("pmd.ttf") format("truetype");
+            }
+
+            textarea {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            }
+
+            body {
+                font-size: 32px;
+                font-family: "pmd";
+                text-align: center;
+                background-color: rgb(146, 164, 165);
+            }
+
+            h4 {
+                text-align: left;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }

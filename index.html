@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>Catodio's Post Generator</title>
+        <link rel="stylesheet" href="index.css?v=1.1"">
+    </head>
+
+    <body>
+        <h1>GENERATE POST</h1>
+        <div class="container">
+            <div class="block">
+                <h2>Profile Picture</h2>
+                <br>
+                <input type="file" id="imageUpload" accept="image/*">
+                <br>
+            </div>
+            
+            <div class="block">
+                <h2>Username</h2>
+                <br>
+                <input type="text" id="username">
+                <br>
+            </div>
+            
+            <div class="block">
+                <h2>Handle</h2>
+                <br>
+                <input type="text" id="handle">
+                <br>
+            </div>
+
+            <div class="block">
+                <h2>Date</h2>
+                <br>
+                <input type="date" id="date">
+                <br>
+            </div>
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="block">
+                <h2>Post Image</h2>
+                <br>
+                <input type="file" id="embedUpload" accept="image/*">
+                <br>
+            </div>
+
+            <div class="block">
+                <h2>Post Content</h2>
+                <br>
+                <textarea type="text" id="textinput" style="width: 305px;height: 100px;"></textarea><br><br>
+                <br>
+            </div>
+
+            <div class="block">
+                <h2>Background Color</h2>
+                <br>
+                <input type="color" id="bgcolor">
+                <br>
+            </div>
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="block">
+                <h2>Replies</h2>
+                <br>
+                <input type="text" id="replies" style="width: 50px;">
+                <br>
+            </div>
+
+            <div class="block">
+                <h2>Retweets</h2>
+                <br>
+                <input type="text" id="retweets" style="width: 50px;">
+                <br>
+            </div>
+
+            <div class="block">
+                <h2>Likes</h2>
+                <br>
+                <input type="text" id="likes" style="width: 50px;">
+                <br>
+            </div>
+        </div>
+        <br>
+            <div class="block">
+                <button type="button" onclick="randomizeRRL()">Randomize</button>
+                <br>
+            </div>
+        <br>
+
+        <canvas id="textCanvas" width="512" height="384"></canvas>
+        
+        <h1> How to use </h1>
+        Simply fill all the stuff above the image, then when you're done, you can either save it like a normal image or copy paste it somewhere. <br>
+        You can change color by typing [C:FFFFFF], with FFFFFF being an hexadecimal value for a color. <br>
+        A few icons are also available, add them with [I:P], [I:HEART] or [I:STAR]. <br><br><br><br><br><br>
+        
+        <h1>CHANGELOG</h1>
+        <h4>
+            12/21/25:<br> Added a color picker for the background.<br>
+            12/22/25:<br> Added a Randomize button for the post's engagement.<br>
+                      Possibly fixed the resulting image being blurry.<br>
+                      You can now use "@" in the main post, handles will also be colored cyan automatically.<br>
+        </h4>
+        <br><br><br>
+        
+        All Pokemon Mystery Dungeon: Explorers of Time/Darkness/Sky assets are owned by Nintendo, The Pokemon Company and Spike Chunsoft.
+        <br>
+    
+    </body>
+    <script src="index.js?v=1.1"">
+        
+        
+    </script>
+</html>
