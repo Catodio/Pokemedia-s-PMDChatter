@@ -221,6 +221,18 @@
                             canvasContent.drawImage(img, x, y + 10, img.width*2, img.height*2);
                             x += (img.width*2) + 2; 
                         }
+                        if (command.startsWith("T:I")) 
+                        {
+                            canvasContent.font = "italic 32px pmd";
+                        }
+                        if (command.startsWith("T:B")) 
+                        {
+                            canvasContent.font = "bold 32px pmd";
+                        }
+                        if (command.startsWith("T:R")) 
+                        {
+                            canvasContent.font = "32px pmd";
+                        }
                         j = ogj;
                         continue;
                     }
