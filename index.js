@@ -12,6 +12,7 @@
         const imageUpload = document.getElementById("imageUpload");
         const embedUpload = document.getElementById("embedUpload");
         const colorPick = document.getElementById('bgcolor');
+        const offset = document.getElementById('offset');
 
 //Takes the user's current date and time, only stores the date in these three variables, probably unnecessary, need to redo it with a single array
         const today = new Date();
@@ -134,6 +135,7 @@
             //All the variables to draw the text itself
             let x = 40;
             let y = 128;
+            let y_offset = Number(offset.value);
             let mentioning = false;
             let ogheight = canvas.height;
             canvasContent.fillStyle = "#000";
@@ -145,14 +147,14 @@
 
             
             //Rest of the stuff to be drawn before the main post
-            canvasContent.fillText(username.value, 154, 44);
+            canvasContent.fillText(username.value, 154, 44+y_offset);
             canvasContent.fillStyle = "grey";
-            canvasContent.fillText(handle.value, 170, 66);
+            canvasContent.fillText(handle.value, 170, 66+y_offset);
             canvasContent.fillStyle = "white";
-            canvasContent.fillText(dateInfo[0], 412, 74);
-            canvasContent.fillText(months[dateInfo[1]-1]+'.', 404, 52);
-            canvasContent.fillText(dateInfo[2], 444, 52);
-            
+            canvasContent.fillText(dateInfo[0], 412, 74+y_offset);
+            canvasContent.fillText(months[dateInfo[1]-1]+'.', 404, 52+y_offset);
+            canvasContent.fillText(dateInfo[2], 444, 52+y_offset);
+            console.log(y_offset)
             //Method I used to have before I added the lines automatically going on a new line, probably needs to be changed in the future
             const lines = textinput.value.split("\n");
             const lineHeight = 26;
@@ -247,7 +249,7 @@
 
                     if (char != "@")
                     {
-                        canvasContent.fillText(char, x, y);
+                        canvasContent.fillText(char, x, y+y_offset);
                         x += canvasContent.measureText(char).width + letterSpacing;
                     }
                     else
@@ -284,7 +286,7 @@
                             canvasContent.drawImage(at2, x, y+14);
                             x += 18;
                         }
-                        canvasContent.fillText(currentword, x, y);
+                        canvasContent.fillText(currentword, x, y+y_offset);
                         x += canvasContent.measureText(currentword).width + letterSpacing;
                         currentword = "";
                         wordx = x;
@@ -320,9 +322,9 @@
 
             //Just draw Replies/Retwees/Likes last
             canvasContent.fillStyle = "grey";
-            canvasContent.fillText(replies.value, 72, (canvas.height - 384)+322);
-            canvasContent.fillText(retweets.value, 186, (canvas.height - 384)+322);
-            canvasContent.fillText(likes.value, 338, (canvas.height - 384)+322);
+            canvasContent.fillText(replies.value, 72, (canvas.height - 384)+322+y_offset);
+            canvasContent.fillText(retweets.value, 186, (canvas.height - 384)+322+y_offset);
+            canvasContent.fillText(likes.value, 338, (canvas.height - 384)+322+y_offset);
 
             //Draw all over again if canvas size changed
             if (canvas.height != ogheight)
@@ -342,6 +344,7 @@
         username.addEventListener("input", draw);
         handle.addEventListener("input", draw);
         colorPick.addEventListener("input", draw);
+        offset.addEventListener("input", draw);
         
         //Post engagement randomization, could be better, probably
         function randomizeRRL()
